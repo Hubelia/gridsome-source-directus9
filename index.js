@@ -9,7 +9,7 @@ let directusClient;
 /**
  * Default upload image path
  */
-let uploadImagesDir = './assets/static/images/.cms-cache'
+let uploadImagesDir = './static/images/.cms-cache'
 const imageTypes = [
 	'image/jpeg',
 	'image/jpg',
@@ -20,17 +20,14 @@ const imageTypes = [
 // TODO ADD CLEANUP OF UNUSED IMAGES / FILES
 const download = async (url, dest, dir = uploadImagesDir) => {
 	var imgName = dest;
-	if (!fs.existsSync('./assets')) {
-		fs.mkdirSync('./assets');
+	if (!fs.existsSync('./static')) {
+		fs.mkdirSync('./static');
 	}
-	if (!fs.existsSync('./assets/static')) {
-		fs.mkdirSync('./assets/static');
+	if (!fs.existsSync('./static/images')) {
+		fs.mkdirSync('./static/images');
 	}
-	if (!fs.existsSync('./assets/static/images')) {
-		fs.mkdirSync('./assets/static/images');
-	}
-	if (!fs.existsSync('./assets/static/images/.cms-cache')) {
-		fs.mkdirSync('./assets/static/images/.cms-cache');
+	if (!fs.existsSync('./static/images/.cms-cache')) {
+		fs.mkdirSync('./static/images/.cms-cache');
 	}
 	if (!fs.existsSync(dir)) {
 		fs.mkdirSync(dir);
@@ -50,7 +47,7 @@ const download = async (url, dest, dir = uploadImagesDir) => {
 				})
 			writer.on('finish', function () {
 				console.log("Downloaded image :" + cleanImageName)
-				resolve('./assets/static/images/.cms-cache/'+imgName);
+				resolve('./static/images/.cms-cache/'+imgName);
 			});
 			writer.on('error', function (err) {
         console.error(err)
