@@ -26,6 +26,7 @@
         "directus"
     ],
     "dependencies": {
-        "@directus/sdk-js": "^9.0.0-rc.34"
+        "@directus/sdk-js": "^9.0.0-rc.34",
+        "querystring": "^0.2.1"
     }
 }
