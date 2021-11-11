@@ -5,7 +5,6 @@ const path = require('path');
  * Convert `const http` to variable to change protocol from project options
  */
 let http = require(process.env.HTTP_SECURED === 'false' ? 'http' : 'https');
-const axios = require("axios");
 let directusClient;
 /**
  * Default upload image path
